@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CitaSmart Web - Gestión y Agendamiento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO GLOBAL -->
+    <header class="global-header">
+        <div class="logo-area">
+            <img src="recursos/logo.png" alt="Logo CitaSmart" class="logo-img">
+            <div class="logo-text">
+                <h1>CitaSmart Web</h1>
+                <p>Gestión y Agendamiento Inteligente</p>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <a href="#" class="nav-item active">1. Portal del Paciente</a>
+            <a href="#" class="nav-item">2. Módulo Secretaría</a>
+            <a href="#" class="nav-item">3. Profesionales y Sanciones</a>
+        </nav>
+
+        <div class="user-profile">
+            <div class="user-info">
+                <strong>Carlos Mendoza (Paciente)</strong>
+                <span>● Cuenta Activa • Sin multas</span>
+            </div>
+            <div class="avatar">CM</div>
+        </div>
+    </header>
+
+    <!-- ALERTA GLOBAL -->
+    <div class="global-alert">
+        <span class="alert-icon">ℹ️</span>
+        <p><strong>Política de Agendamiento Inteligente:</strong> Los horarios mostrados en verde bloquean automáticamente al reservar. Las cancelaciones o reprogramaciones deben realizarse con al menos <strong>12 horas de antelación</strong> para evitar multas por inasistencia.</p>
+    </div>
+
+    <main class="dashboard-container">
+
+        <!-- ==========================================
+             PANTALLA 1: PORTAL DEL PACIENTE
+             ========================================== -->
+        <section class="tab-content active" id="tab1">
+            <div class="layout-two-cols">
+                
+                <!-- Columna Izquierda: Login -->
+                <div class="card login-card">
+                    <h2>Acceso de Usuarios (HU01)</h2>
+                    <p class="subtitle">Autenticación web 24/7 en llamadas telefónicas</p>
+                    
+                    <div class="tabs-inner">
+                        <span class="tab-inner active">Iniciar Sesión</span>
+                        <span class="tab-inner">Registrarse</span>
+                    </div>
+
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label>Correo Electrónico o Cédula</label>
+                            <input type="text" value="carlos.mendoza@correo.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" value="........">
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="recordar" checked>
+                            <label for="recordar">Recordar sesión</label>
+                            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block">Ingresar al Portal</button>
+                        <div class="text-center mt-2">
+                            <a href="#" class="register-link">¿Usuario nuevo en la plataforma?</a>
+                            <button type="button" class="btn btn-outline btn-block mt-1">Crear Cuenta Nueva</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Columna Derecha: Calendario y Horarios -->
+                <div class="card calendar-card">
+                    <h2>Calendario de Citas en Tiempo Real (HU02)</h2>
+                    <p class="subtitle">Selecciona un día y reserva tu franja disponible en un solo paso.</p>
+                    
+                    <div class="specialist-selector">
+                        <label>Especialista:</label>
+                        <select>
+                            <option>Dra. Camila Rojas — Medicina General</option>
+                            <option>Dr. Andrés Pardo — Odontología</option>
+                        </select>
+                    </div>
+
+                    <div class="calendar-layout">
+                        <!-- Mini Calendario -->
+                        <div class="mini-calendar">
+                            <div class="cal-header">
+                                <button>&lt;</button>
+                                <span>Noviembre 2026</span>
+                                <button>&gt;</button>
+                            </div>
+                            <div class="cal-grid">
+                                <span class="day-name">L</span><span class="day-name">M</span><span class="day-name">X</span><span class="day-name">J</span><span class="day-name">V</span><span class="day-name">S</span><span class="day-name">D</span>
+                                <span class="day disabled">26</span><span class="day disabled">27</span><span class="day disabled">28</span><span class="day disabled">29</span><span class="day disabled">30</span><span class="day disabled">31</span><span class="day disabled">1</span>
+                                <span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span>
+                                <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
+                                <span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span>
+                                <span class="day">23</span><span class="day active">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span>
+                                <span class="day">30</span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span>
+                            </div>
+                            <div class="cal-legend">
+                                <span><span class="dot green"></span> Disponible</span>
+                                <span><span class="dot gray"></span> Ocupado</span>
+                            </div>
+                        </div>
+
+                        <!-- Horarios -->
+                        <div class="time-slots">
+                            <div class="slots-header">
+                                <span>Horarios para el 25 de Noviembre</span>
+                                <span class="duration">Duración: 30 min / cita</span>
+                            </div>
+                            
+                            <div class="slot available">
+                                <div class="slot-time">08:00 AM</div>
+                                <div class="slot-info">
+                                    <span class="status">✓ Cupo libre con Dra. Camila Rojas</span>
+                                </div>
+                                <button class="btn btn-success">Reservar</button>
+                            </div>
+                            <div class="slot occupied">
+                                <div class="slot-time">09:00 AM</div>
+                                <div class="slot-info">
+                                    <span class="status">Horario Ocupado — Bloqueado por secretaría</span>
+                                </div>
+                                <button class="btn btn-disabled" disabled>No disponible</button>
+                            </div>
+                            <div class="slot available">
+                                <div class="slot-time">10:00 AM</div>
+                                <div class="slot-info">
+                                    <span class="status">✓ Cupo libre con Dra. Camila Rojas</span>
+                                </div>
+                                <button class="btn btn-success">Reservar</button>
+                            </div>
+                            <div class="slot occupied">
+                                <div class="slot-time">11:00 AM</div>
+                                <div class="slot-info">
+                                    <span class="status">Horario Ocupado — Bloqueado por secretaría</span>
+                                </div>
+                                <button class="btn btn-disabled" disabled>No disponible</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mis Citas Programadas -->
+            <div class="card full-width mt-4">
+                <h2>Mis Citas Programadas y Control de Cancelación (HU04)</h2>
+                <p class="subtitle">Puedes cancelar o mover tu cita próxima (+12 h) sin que afecte tu historial.</p>
+                <span class="badge badge-warning float-right">Regla: Mínimo 12 h antes</span>
+                
+                <div class="appointment-list">
+                    <div class="appointment-item">
+                        <div class="appt-details">
+                            <strong>Dra. Camila Rojas (Medicina General)</strong>
+                            <span class="badge badge-success">Confirmada</span>
+                            <p>📅 Mar, 24 Nov 2026 • 08:00 AM • <em>(Faltan 2 horas para tu atención)</em></p>
+                        </div>
+                        <button class="btn btn-danger-outline" disabled>🔒 Cancelar (+12 h)</button>
+                    </div>
+                    <div class="appointment-item">
+                        <div class="appt-details">
+                            <strong>Dr. Andrés Pardo (Odontología)</strong>
+                            <span class="badge badge-success">Confirmada</span>
+                            <p>📅 Jue, 26 Nov 2026 • 10:00 AM • <em>(Faltan 48 horas para tu atención)</em></p>
+                        </div>
+                        <button class="btn btn-outline">Cancelar Cita</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 2: MÓDULO SECRETARÍA (Oculto por defecto)
+             ========================================== -->
+        <section class="tab-content" id="tab2" style="display: none;">
+            <div class="card">
+                <h2>Panel de Recepción y Agendamiento Rápido</h2>
+                <p class="subtitle">Diseñado para registrar pacientes en acceso digital en menos de 30 segundos y eliminar el cuaderno de papel.</p>
+            </div>
+            
+            <div class="layout-two-cols mt-4">
+                <!-- Formulario de Registro Rápido -->
+                <div class="card form-secretary">
+                    <h3>Agendar Nueva Cita (Registro Rápido)</h3>
+                    <p class="subtitle">Registro automático de historial de ocupación en tiempo real</p>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label>Número de Identificación *</label>
+                            <input type="text" placeholder="Ej: 63542891">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre Completo del Paciente *</label>
+                            <input type="text" placeholder="Ej: Martha Lucía Quintero">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Teléfono de Contacto *</label>
+                                <input type="text" placeholder="315 890 1234">
+                            </div>
+                            <div class="form-group">
+                                <label>Canal de Solicitud</label>
+                                <select>
+                                    <option>Presencial (Ventanilla)</option>
+                                    <option>Teléfono</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Profesional y Especialidad *</label>
+                            <select>
+                                <option>Dra. Camila Rojas — Medicina General</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha de Cita *</label>
+                                <input type="date" value="2026-11-25">
+                            </div>
+                            <div class="form-group">
+                                <label>Hora Disponible *</label>
+                                <input type="time" value="08:00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Notas Adicionales</label>
+                            <textarea rows="2" placeholder="Ej: Alergia a la penicilina..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-outline">Limpiar</button>
+                            <button type="button" class="btn btn-primary">Confirmar Cita</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Agenda del Día -->
+                <div class="card agenda-del-dia">
+                    <div class="agenda-header">
+                        <h3>Agenda Consolidada del Día (Cero Cruces)</h3>
+                        <span class="badge badge-success">5 Turnos Activos</span>
+                    </div>
+                    <p class="subtitle">Sincronización entre portal web y ventanilla + marca asistencia o inasistencia</p>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>HORA / FECHA</th>
+                                <th>PACIENTE</th>
+                                <th>PROFESIONAL</th>
+                                <th>CANAL</th>
+                                <th>ESTADO / CONTROL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>09:00 AM</strong><br><small>25 Nov 2026</small></td>
+                                <td>Ana María Vélez<br><small>CC 6345781</small></td>
+                                <td>Dra. Camila Rojas</td>
+                                <td>Web</td>
+                                <td><span class="badge badge-success">Confirmada</span> <a href="#" class="link-danger">Marcar No-Show</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>10:30 AM</strong><br><small>25 Nov 2026</small></td>
+                                <td>Roberto Cañizares<br><small>CC 8048182</small></td>
+                                <td>Dr. Andrés Pardo</td>
+                                <td>Teléfono</td>
+                                <td><span class="badge badge-danger">No Asistió</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>11:00 AM</strong><br><small>25 Nov 2026</small></td>
+                                <td>Jorge Luis Torres<br><small>CC 8745892</small></td>
+                                <td>Dra. Camila Rojas</td>
+                                <td>Ventanilla</td>
+                                <td><span class="badge badge-success">Confirmada</span> <a href="#" class="link-danger">Marcar No-Show</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>02:00 PM</strong><br><small>25 Nov 2026</small></td>
+                                <td>Elena Ramírez<br><small>CC 8354491</small></td>
+                                <td>Dra. Camila Rojas</td>
+                                <td>Web</td>
+                                <td><span class="badge badge-info">Asistió</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>03:30 PM</strong><br><small>25 Nov 2026</small></td>
+                                <td>Hector Fabio Ruiz<br><small>CC 1034491</small></td>
+                                <td>Dr. Sofía Molina</td>
+                                <td>Ventanilla</td>
+                                <td><span class="badge badge-danger">No Asistió</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 3: PROFESIONALES Y SANCIONES (Oculto por defecto)
+             ========================================== -->
+        <section class="tab-content" id="tab3" style="display: none;">
+            <!-- KPIs Globales -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <span class="kpi-title">Cruces de Horario (Overbooking)</span>
+                    <span class="kpi-value success">0</span>
+                    <span class="kpi-badge success">Bloqueo activo</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">Política Cancelación Anticipada</span>
+                    <span class="kpi-value warning">12 Horas</span>
+                    <span class="kpi-badge warning">Candado servidor</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">Inasistencias Detectadas (No-Show)</span>
+                    <span class="kpi-value danger">2</span>
+                    <span class="kpi-badge danger">Con multa activa</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">Puntualidad en Sala de Espera</span>
+                    <span class="kpi-value success">96%</span>
+                    <span class="kpi-badge success">Sin retrasos cascada</span>
+                </div>
+            </div>
+
+            <div class="layout-two-cols mt-4">
+                <!-- Hoja de Ruta -->
+                <div class="card dark-card">
+                    <div class="dark-header">
+                        <h3>VISTA DEL ESPECIALISTA + HOY</h3>
+                        <span class="badge badge-info">Hoy + Turno Real</span>
+                    </div>
+                    <h2>Hoja de Ruta Diaria — Dra. Camila Rojas</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="time">08:00 AM</span>
+                            <div class="timeline-content">
+                                <strong>Ana María Vélez</strong>
+                                <span>Canal: Ventanilla • Duración estimada: 30 min</span>
+                            </div>
+                            <span class="badge badge-success">Confirmada</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">10:00 AM</span>
+                            <div class="timeline-content">
+                                <strong>Jorge Luis Torres</strong>
+                                <span>Canal: Ventanilla • Duración estimada: 30 min</span>
+                            </div>
+                            <span class="badge badge-success">Confirmada</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="time">02:00 PM</span>
+                            <div class="timeline-content">
+                                <strong>Elena Ramírez</strong>
+                                <span>Canal: Web • Duración estimada: 30 min</span>
+                            </div>
+                            <span class="badge badge-info">Asistió</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sanciones -->
+                <div class="card">
+                    <h3>CONTROL DE ASISTENCIA + HU05</h3>
+                    <h2>Historial de Sanciones y Multas (No-Show)</h2>
+                    <span class="badge badge-danger float-right">Bloqueos activos</span>
+                    
+                    <div class="sancion-list mt-4">
+                        <div class="sancion-item">
+                            <div class="sancion-info">
+                                <span class="badge badge-danger">MULTA</span>
+                                <strong>Roberto Cañizares</strong>
+                                <small>CC 1034491</small>
+                                <p>Inasistencia (No-Show) • 10:30 AM</p>
+                            </div>
+                            <div class="sancion-monto">
+                                <span class="monto">$25.000 COP</span>
+                                <small>Pendiente / Bloqueado</small>
+                            </div>
+                        </div>
+                        <div class="sancion-item">
+                            <div class="sancion-info">
+                                <span class="badge badge-danger">MULTA</span>
+                                <strong>Hector Fabio Ruiz</strong>
+                                <small>CC 1034497</small>
+                                <p>Cancelación fuera de tiempo (+12 h) e inasistencia</p>
+                            </div>
+                            <div class="sancion-monto">
+                                <span class="monto">$25.000 COP</span>
+                                <small>Pendiente / Bloqueado</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Script simple para cambiar de pestañas (Para probar las 3 pantallas) -->
+    <script>
+        document.querySelectorAll('.nav-item').forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Remover activo de todos
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+                
+                // Activar el seleccionado
+                item.classList.add('active');
+                document.getElementById(`tab${index + 1}`).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
